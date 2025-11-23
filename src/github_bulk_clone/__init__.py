@@ -61,35 +61,29 @@ def clone_from_list(repos: list[str],clone_directory: str):
         else:
             print(f'Skipping {repo_name}: Folder already exists.')
 
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
-    target_user = input("Enter github username to clone: ")
-    token = getpass.getpass("Enter your github AUTH token: ")
-    os.makedirs("./dump", exist_ok=True)
-    os.makedirs("./dump/repos", exist_ok=True)
+def clone_all_repos_of(username: str, api_token: str, clone_directory: str):
+    os.makedirs(f"{clone_directory}", exist_ok=True)
 
     print(f"Getting repo names for {target_user}")
-    file = f"./dump/{target_user}.repos"
+    file = f"{clone_directory}/{target_user}.repos"
     repos = []
     if os.path.exists(file):
         print(f"Headers already fetched, fetching from file {file}")
-        with open(file,"r") as f:
+        with open(file, "r") as f:
             repos = [i[:-1] for i in f.readlines()]
     else:
         repos = get_all_repo_names(token, target_user)
         store_repo_names_to_file(repos, file)
 
-    clone_dir = "./dump/repos"
-
     print(f"Cloning all repos of user {target_user}")
-    clone_from_list(repos,clone_dir)
+    clone_from_list(repos, clone_directory)
+
+
+if __name__ == "__main__":
+    target_user = input("Enter github username to clone: ")
+    token = getpass.getpass("Enter your github AUTH token: ")
+    os.makedirs("./dump",exist_ok=True)
+    clone_all_repos_of(target_user,token,"./dump")
+
 
 

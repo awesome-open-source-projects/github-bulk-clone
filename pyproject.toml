@@ -1,0 +1,29 @@
+[project]
+name = "github-bulk-clone"
+version = "0.0.1"
+authors = [
+    { name="yolowex", email="yolowex@gmail.com" },
+]
+description = "A script that script that helps get a backup of all your github projects."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MPL-2.0"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/awesome-open-source-projects/github-bulk-clone"
+Issues = "https://github.com/awesome-open-source-projects/github-bulk-clone/issues"
+
+[build-system]
+requires = ["hatchling >= 1.26.3", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/github_bulk_clone"]
+
+[project.scripts]
+blkclone = "github_bulk_clone:__entry.main"
