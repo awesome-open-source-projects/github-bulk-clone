@@ -1,6 +1,6 @@
 [project]
 name = "github-bulk-clone"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
     { name="yolowex", email="yolowex@gmail.com" },
 ]
@@ -11,7 +11,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
-license = "MPL-2.0"
+license = "MIT"
 license-files = ["LICEN[CS]E*"]
 dependencies = [
     "requests >= 2.32.0"
