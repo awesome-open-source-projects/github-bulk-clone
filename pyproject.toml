@@ -1,6 +1,6 @@
 [project]
 name = "github-bulk-clone"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
     { name="yolowex", email="yolowex@gmail.com" },
 ]
@@ -13,7 +13,9 @@ classifiers = [
 ]
 license = "MPL-2.0"
 license-files = ["LICEN[CS]E*"]
-
+dependencies = [
+    "requests >= 2.32.0"
+]
 [project.urls]
 Homepage = "https://github.com/awesome-open-source-projects/github-bulk-clone"
 Issues = "https://github.com/awesome-open-source-projects/github-bulk-clone/issues"

@@ -64,15 +64,14 @@ def clone_from_list(repos: list[str],clone_directory: str):
 def clone_all_repos_of(username: str, api_token: str, clone_directory: str):
     os.makedirs(f"{clone_directory}", exist_ok=True)
 
-    print(f"Getting repo names for {target_user}")
-    file = f"{clone_directory}/{target_user}.repos"
-    repos = []
+    print(f"Getting repo names for {username}")
+    file = f"{clone_directory}/{username}.repos"
     if os.path.exists(file):
         print(f"Headers already fetched, fetching from file {file}")
         with open(file, "r") as f:
             repos = [i[:-1] for i in f.readlines()]
     else:
-        repos = get_all_repo_names(token, target_user)
+        repos = get_all_repo_names(api_token, target_user)
         store_repo_names_to_file(repos, file)
 
     print(f"Cloning all repos of user {target_user}")

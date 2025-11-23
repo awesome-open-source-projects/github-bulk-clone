@@ -1,7 +1,6 @@
 import argparse
 import sys
 import getpass
-
 from . import clone_all_repos_of
 
 def main():
