@@ -26,6 +26,12 @@ python -m github_bulk_clone <username> <clone_directory> [-t <token>]
 - `<clone_directory>`: Local directory for cloning.
 - `-t <token>`: Optional GitHub personal access token.
 
+Or you can just use `blkclone`
+
+```bash
+blkclone <username> <clone_directory> [-t <token>]
+```
+
 #### Python Script
 
 Import and use the functions directly:
